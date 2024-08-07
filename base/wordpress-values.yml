@@ -1,17 +1,22 @@
-  replicaCount: 4
-  autoscaling:
-    enabled: true
-    minReplicas: 2
-    maxReplicas: 10
-    targetCPU: 50
-    targetMemory: 50
-  updateStrategy:
-    type: "RollingUpdate"
-  wordpressConfigureCache: true
-  memcached:
-    enabled: true
-  wordpressUsername: "admin"
-  wordpressPassword: "password"
-  mariadb:
-    auth:
-      rootPassword: "password"
+replicaCount: 4
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPU: 50
+  targetMemory: 50
+  
+updateStrategy:
+  type: "RollingUpdate"
+  
+wordpressConfigureCache: true
+memcached:
+  enabled: true
+  
+wordpressUsername: "admin"
+wordpressPassword: "password"
+  
+mariadb:
+  auth:
+    rootPassword: "password"
