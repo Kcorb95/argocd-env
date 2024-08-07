@@ -17,3 +17,8 @@ wordpressPassword: "wpPassword"
   
 mariadb:
   enabled: true
+  auth:
+    rootPassword: "rootPassword"
+    database: "bn_wordpress"
+    username: "bn_wordpress"
+    password: "mdbPassword"
