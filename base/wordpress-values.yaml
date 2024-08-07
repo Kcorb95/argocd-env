@@ -1,5 +1,3 @@
-replicaCount: 4
-
 autoscaling:
   enabled: true
   minReplicas: 2
@@ -9,14 +7,18 @@ autoscaling:
   
 updateStrategy:
   type: "RollingUpdate"
-  
+
 wordpressConfigureCache: true
 memcached:
   enabled: true
   
 wordpressUsername: "admin"
-wordpressPassword: "password"
+wordpressPassword: "wpPassword"
   
 mariadb:
+  enabled: true
   auth:
-    rootPassword: "password"
+    rootPassword: "rootPassword"
+    database: "bn_wordpress"
+    username: "bn_wordpress"
+    password: "mdbPassword"
