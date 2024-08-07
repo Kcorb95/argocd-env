@@ -1,4 +1,10 @@
   replicaCount: 4
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPU: 50
+    targetMemory: 50
   updateStrategy:
     type: "RollingUpdate"
   wordpressConfigureCache: true
