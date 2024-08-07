@@ -1,0 +1,11 @@
+  replicaCount: 4
+  updateStrategy:
+    type: "RollingUpdate"
+  wordpressConfigureCache: true
+  memcached:
+    enabled: true
+  wordpressUsername: "admin"
+  wordpressPassword: "password"
+  mariadb:
+    auth:
+      rootPassword: "password"
