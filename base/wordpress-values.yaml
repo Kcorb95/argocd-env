@@ -4,30 +4,26 @@ autoscaling:
   maxReplicas: 10
   targetCPU: 50
   targetMemory: 50
-  
+
 updateStrategy:
   type: "RollingUpdate"
 
 wordpressConfigureCache: true
 memcached:
   enabled: true
-  
+
 wordpressUsername: "admin"
-wordpressPassword: 
-  secretKeyRef:
-    name: wordpress-secrets
-    key: rootPassword
-  
+wordpressPassword: {{ .Values.secrets.wordpressPassword }}
+
 mariadb:
   enabled: true
   auth:
-    rootPassword:
-      secretKeyRef:
-        name: wordpress-secrets
-        key: mdbRootPassword
+    rootPassword: {{ .Values.secrets.mariadbRootPassword }}
     database: "bn_wordpress"
     username: "bn_wordpress"
-    password:
-      secretKeyRef:
-        name: wordpress-secrets
-        key: mdbPassword
+    password: {{ .Values.secrets.mariadbPassword }}
+
+secrets:
+  wordpressPassword: ""
+  mariadbPassword: ""
+  mariadbRootPassword: ""
