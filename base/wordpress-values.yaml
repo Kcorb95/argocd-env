@@ -13,17 +13,21 @@ memcached:
   enabled: true
 
 wordpressUsername: "admin"
-wordpressPassword: {{ .Values.secrets.wordpressPassword }}
+wordpressPassword: 
+  secretKeyRef:
+    name: wordpress-secrets
+    key: rootPassword
 
 mariadb:
   enabled: true
   auth:
-    rootPassword: {{ .Values.secrets.mariadbRootPassword }}
+    rootPassword:
+      secretKeyRef:
+        name: wordpress-secrets
+        key: mdbRootPassword
     database: "bn_wordpress"
     username: "bn_wordpress"
-    password: {{ .Values.secrets.mariadbPassword }}
-
-secrets:
-  wordpressPassword: ""
-  mariadbPassword: ""
-  mariadbRootPassword: ""
+    password:
+      secretKeyRef:
+        name: wordpress-secrets
+        key: mdbPassword
